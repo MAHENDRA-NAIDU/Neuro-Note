@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #8b5cf6;
+  --color-secondary: #3b82f6;
+  --color-dark: #0f172a;
+  --color-darker: #020617;
+  --color-light: #f8fafc;
+}
+
+@layer base {
+  body {
+    @apply bg-darker text-light antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+  }
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:bg-white/10 hover:-translate-y-1 hover:shadow-2xl;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+  .btn-primary {
+    @apply px-6 py-2 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/20;
+  }
+  .btn-secondary {
+    @apply px-6 py-2 rounded-xl bg-white/10 text-white font-medium hover:bg-white/20 transition-colors border border-white/10;
+  }
+  .input-field {
+    @apply w-full bg-white/5 border border-white/10 rounded-xl pr-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* React Quill Dark Mode */
+.quill-dark .ql-toolbar.ql-snow {
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.quill-dark .ql-container.ql-snow {
+  border: none;
+  font-family: inherit;
+  font-size: 1.125rem;
+}
+.quill-dark .ql-editor {
+  color: #d1d5db;
+  min-height: 200px;
+}
+.quill-dark .ql-editor.ql-blank::before {
+  color: #4b5563;
+  font-style: normal;
+}
+.quill-dark .ql-snow .ql-stroke {
+  stroke: #9ca3af;
+}
+.quill-dark .ql-snow .ql-fill {
+  fill: #9ca3af;
+}
+.quill-dark .ql-snow .ql-picker {
+  color: #9ca3af;
+}
